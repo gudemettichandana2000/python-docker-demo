@@ -2,6 +2,7 @@
 services:
   db:
     container_name: db
+    image: library-db:v1
     build: ./database/
     ports:
       - "3306:3306"
@@ -20,6 +21,7 @@ services:
 
   auth_service:
     container_name: auth_service
+    image: auth-service:v1
     build: ./auth/
     ports:
       - "5001:5001"
@@ -35,6 +37,7 @@ services:
           memory: 200M
   book_service:
     container_name: book_service
+    image: book-service:v1
     build: ./book/
     ports:
       - "5002:5002"
@@ -50,6 +53,7 @@ services:
           memory: 200M
   borrow_service:
     container_name: borrow_service
+    image: borrow-service:v1
     build: ./borrow/
     ports:
       - "5003:5003"
@@ -65,6 +69,7 @@ services:
           memory: 200M
   frontend:
     container_name: frontend
+    image: web-app:v1
     build: ./
     ports:
       - "5000:5000"
